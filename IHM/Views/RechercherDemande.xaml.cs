@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IHM.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,15 +21,19 @@ namespace IHM.Views
     /// </summary>
     public partial class RechercherDemande : Page
     {
+
+        private RechercheViewModel dataContext = new RechercheViewModel();
         public RechercherDemande()
         {
             InitializeComponent();
+            DataContext = dataContext;
+
+
         }
 
         private void Rechercher_Click(object sender, RoutedEventArgs e)
         {
-            APIClient client = new APIClient();
-            client.Fetch();
+            dataContext.GetDemandes();
         }
     }
 }

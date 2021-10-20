@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IHM.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,19 @@ namespace IHM.Views
         public NouvelleDemande()
         {
             InitializeComponent();
+        }
+
+        private void Valider_Click(object sender, RoutedEventArgs e)
+        {
+            Demande demande = new Demande();
+            demande.Motif = tbxMotif.Text;
+            demande.Email = TbxEmail.Text;
+            APIClient client = new APIClient();
+            bool result = client.PostDemande(demande);
+            if (result)
+                TblResult.Text = "Creation réussi !!";
+            else
+                TblResult.Text = "Probleme lors de la creation";
         }
     }
 }

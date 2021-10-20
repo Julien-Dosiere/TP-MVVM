@@ -14,12 +14,13 @@
         <Label Content="Motif" HorizontalAlignment="Left" Margin="296,147,0,0" VerticalAlignment="Top" Width="61"/>
         <TextBox x:Name="TbxEmail" HorizontalAlignment="Left" Height="26" Margin="357,187,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="143"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="296,186,0,0" VerticalAlignment="Top" Width="61"/>
-        <Button Content="Valider >>" HorizontalAlignment="Left" Margin="527,336,0,0" VerticalAlignment="Top" Width="151" Height="44"/>
+        <Button Content="Valider >>" HorizontalAlignment="Left" Margin="527,336,0,0" VerticalAlignment="Top" Width="151" Height="44" Click="Valider_Click"/>
         <Button Content="Annuler" HorizontalAlignment="Left" Margin="187,336,0,0" VerticalAlignment="Top" Width="151" Height="44"/>
         <TextBox x:Name="TbxDemandeur" IsEnabled="False" HorizontalAlignment="Left" Height="26" Margin="357,232,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="143"/>
         <Label Content="Demandeur" HorizontalAlignment="Left" Margin="277,231,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="TbxService" IsEnabled="False" HorizontalAlignment="Left" Height="26" Margin="357,272,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="143"/>
         <Label Content="Service" HorizontalAlignment="Left" Margin="288,271,0,0" VerticalAlignment="Top" Width="61"/>
+        <TextBlock x:Name="TblResult" HorizontalAlignment="Left" Margin="277,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" TextAlignment="Center" FontWeight="Bold" Foreground="#FF073115" FontSize="16"/>
 
     </Grid>
 </Page>

@@ -12,9 +12,17 @@
         <TextBlock HorizontalAlignment="Left" Height="38" Margin="262,33,0,0" TextWrapping="Wrap" Text="Rechercher Demande" VerticalAlignment="Top" Width="262" TextAlignment="Center" FontWeight="Bold" FontSize="18"/>
         <TextBox HorizontalAlignment="Left" Height="29" Margin="262,85,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="249"/>
         <Button Content="Rechercher" HorizontalAlignment="Left" Height="29" Margin="541,85,0,0" VerticalAlignment="Top" Width="85" Click="Rechercher_Click"/>
-        <DataGrid HorizontalAlignment="Left" Height="171" Margin="92,174,0,0" VerticalAlignment="Top" Width="641"/>
         <Button Content="Supprimer" HorizontalAlignment="Left" Height="27" Margin="529,366,0,0" VerticalAlignment="Top" Width="143"/>
         <Button Content="Supprimer" HorizontalAlignment="Left" Height="27" Margin="177,366,0,0" VerticalAlignment="Top" Width="143"/>
+        <ListView ItemsSource="{Binding Path=ListeDemandes.Demandes}" HorizontalAlignment="Left" Height="204" Margin="117,146,0,0" VerticalAlignment="Top" Width="604">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Motif" Width="200" DisplayMemberBinding="{Binding Motif}"/>
+                    <GridViewColumn Header="Email" Width="200" DisplayMemberBinding="{Binding Email}"/>
+                    <GridViewColumn Header="Statut" Width="200" DisplayMemberBinding="{Binding Statut}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Page>

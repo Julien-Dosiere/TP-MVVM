@@ -64,8 +64,10 @@
     </ApplicationDefinition>
     <Compile Include="APIClient.cs" />
     <Compile Include="Models\Demande.cs" />
+    <Compile Include="Models\ListeDemandes.cs" />
     <Compile Include="Models\Salary.cs" />
     <Compile Include="Models\Service.cs" />
+    <Compile Include="ViewModels\RechercheViewModel.cs" />
     <Compile Include="Views\Connexion.xaml.cs">
       <DependentUpon>Connexion.xaml</DependentUpon>
     </Compile>
