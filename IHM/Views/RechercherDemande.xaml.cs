@@ -24,5 +24,11 @@ namespace IHM.Views
         {
             InitializeComponent();
         }
+
+        private void Rechercher_Click(object sender, RoutedEventArgs e)
+        {
+            APIClient client = new APIClient();
+            client.Fetch();
+        }
     }
 }
