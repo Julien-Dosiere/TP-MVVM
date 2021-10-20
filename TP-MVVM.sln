@@ -5,12 +5,12 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAPI", "RestAPI\RestAPI.csproj", "{2EF119CF-2F11-41BF-B061-662BD8B1EAF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHM", "..\IHM\IHM.csproj", "{D0ABD1D8-3279-43D9-9F6C-5A747AAE06D5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{779D4D1D-AC39-4617-9A3E-6A40DD844F56}"
 	ProjectSection(SolutionItems) = preProject
 		ClientDB.sql = ClientDB.sql
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHM", "IHM\IHM.csproj", "{D0ABD1D8-3279-43D9-9F6C-5A747AAE06D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
