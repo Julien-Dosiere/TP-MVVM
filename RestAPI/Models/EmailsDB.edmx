@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EmailsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Demandes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Motif" Type="varchar" MaxLength="100" />
+          <Property Name="Statut" Type="varchar" MaxLength="100" />
+          <Property Name="Info" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="IdSalarie" Type="int" />
+        </EntityType>
+        <EntityType Name="Salaries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Matricule" Type="varchar" MaxLength="100" />
+          <Property Name="Nom" Type="varchar" MaxLength="100" />
+          <Property Name="Prenom" Type="varchar" MaxLength="100" />
+          <Property Name="DateNaissance" Type="datetime" />
+          <Property Name="Adresse" Type="varchar" MaxLength="200" />
+          <Property Name="TypeContrat" Type="varchar" MaxLength="100" />
+          <Property Name="Photo" Type="varchar(max)" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+          <Property Name="Responsable" Type="bit" />
+          <Property Name="IdService" Type="int" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__Demandes__IdSala__3B75D760">
+          <End Role="Salaries" Type="Self.Salaries" Multiplicity="0..1" />
+          <End Role="Demandes" Type="Self.Demandes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salaries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Demandes">
+              <PropertyRef Name="IdSalarie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Salaries__IdServ__38996AB5">
+          <End Role="Services" Type="Self.Services" Multiplicity="0..1" />
+          <End Role="Salaries" Type="Self.Salaries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salaries">
+              <PropertyRef Name="IdService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmailsDBModelStoreContainer">
+          <EntitySet Name="Demandes" EntityType="Self.Demandes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salaries" EntityType="Self.Salaries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Demandes__IdSala__3B75D760" Association="Self.FK__Demandes__IdSala__3B75D760">
+            <End Role="Salaries" EntitySet="Salaries" />
+            <End Role="Demandes" EntitySet="Demandes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Salaries__IdServ__38996AB5" Association="Self.FK__Salaries__IdServ__38996AB5">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="Salaries" EntitySet="Salaries" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EmailsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Demande">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Motif" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Statut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Info" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdSalarie" Type="Int32" />
+          <NavigationProperty Name="Salary" Relationship="Self.FK__Demandes__IdSala__3B75D760" FromRole="Demandes" ToRole="Salaries" />
+        </EntityType>
+        <EntityType Name="Salary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Matricule" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DateNaissance" Type="DateTime" Precision="3" />
+          <Property Name="Adresse" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TypeContrat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Responsable" Type="Boolean" />
+          <Property Name="IdService" Type="Int32" />
+          <NavigationProperty Name="Service" Relationship="Self.FK__Salaries__IdServ__38996AB5" FromRole="Salaries" ToRole="Services" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__Demandes__IdSala__3B75D760">
+          <End Role="Salaries" Type="Self.Salary" Multiplicity="0..1" />
+          <End Role="Demandes" Type="Self.Demande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salaries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Demandes">
+              <PropertyRef Name="IdSalarie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Salaries__IdServ__38996AB5">
+          <End Role="Services" Type="Self.Service" Multiplicity="0..1" />
+          <End Role="Salaries" Type="Self.Salary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salaries">
+              <PropertyRef Name="IdService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmailsDBEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Demandes" EntityType="Self.Demande" />
+          <EntitySet Name="Salaries" EntityType="Self.Salary" />
+          <EntitySet Name="Services" EntityType="Self.Service" />
+          <AssociationSet Name="FK__Demandes__IdSala__3B75D760" Association="Self.FK__Demandes__IdSala__3B75D760">
+            <End Role="Salaries" EntitySet="Salaries" />
+            <End Role="Demandes" EntitySet="Demandes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Salaries__IdServ__38996AB5" Association="Self.FK__Salaries__IdServ__38996AB5">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="Salaries" EntitySet="Salaries" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmailsDBModelStoreContainer" CdmEntityContainer="EmailsDBEntities4">
+          <EntitySetMapping Name="Demandes">
+            <EntityTypeMapping TypeName="EmailsDBModel.Demande">
+              <MappingFragment StoreEntitySet="Demandes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Motif" ColumnName="Motif" />
+                <ScalarProperty Name="Statut" ColumnName="Statut" />
+                <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdSalarie" ColumnName="IdSalarie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salaries">
+            <EntityTypeMapping TypeName="EmailsDBModel.Salary">
+              <MappingFragment StoreEntitySet="Salaries">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Matricule" ColumnName="Matricule" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="TypeContrat" ColumnName="TypeContrat" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+                <ScalarProperty Name="IdService" ColumnName="IdService" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="EmailsDBModel.Service">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

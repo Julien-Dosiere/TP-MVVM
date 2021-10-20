@@ -1,0 +1,19 @@
+﻿<Window x:Class="IHM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IHM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1000">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="138">
+            <Button Content="Nouvelle Demande" Click="NouvelleDemande_Click" Height="146" Margin="0,0,-0.4,0"/>
+            <Button Content="Rechercher Demande" Click="RechercherDemande_Click" Margin="0,0,-0.4,0" Height="143"/>
+            <Button Content="Creation Salarie" Click="CreationSalarie_Click" Margin="0,0,-0.4,0" Height="130"/>
+
+        </StackPanel>
+        <Frame x:Name="frmPages" NavigationUIVisibility="Hidden" Content="Page Defaut" HorizontalAlignment="Left"  Height="420" Margin="138,0,-0.4,0" VerticalAlignment="Top" Width="856" Background="#FF494949"/>
+
+    </Grid>
+</Window>

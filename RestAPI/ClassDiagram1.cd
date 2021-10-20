@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RestAPI.Models.Demande">
+    <Position X="5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACICAEACAAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAAA=</HashCode>
+      <FileName>Models\Demande.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Salary" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RestAPI.Models.Salary">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAACAECAAACAAAAAAAAAEACAQQAAAACAAQgAAAAA=</HashCode>
+      <FileName>Models\Salary.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Service" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RestAPI.Models.Service">
+    <Position X="5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

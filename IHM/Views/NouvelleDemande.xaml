@@ -1,0 +1,25 @@
+﻿<Page x:Class="IHM.Views.NouvelleDemande"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IHM.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NouvelleDemande">
+
+    <Grid Background="#FF70F7FF">
+        <TextBlock HorizontalAlignment="Left" Height="38" Margin="229,36,0,0" TextWrapping="Wrap" Text="Nouvelle Demande" VerticalAlignment="Top" Width="306" TextAlignment="Center" FontWeight="Bold" FontSize="16"/>
+        <TextBox x:Name="tbxMotif" HorizontalAlignment="Left" Height="26" Margin="357,148,0,0" TextWrapping="Wrap" Text="Motif" VerticalAlignment="Top" Width="143"/>
+        <Label Content="Motif" HorizontalAlignment="Left" Margin="296,147,0,0" VerticalAlignment="Top" Width="61"/>
+        <TextBox x:Name="TbxEmail" HorizontalAlignment="Left" Height="26" Margin="357,187,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="143"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="296,186,0,0" VerticalAlignment="Top" Width="61"/>
+        <Button Content="Valider >>" HorizontalAlignment="Left" Margin="527,336,0,0" VerticalAlignment="Top" Width="151" Height="44"/>
+        <Button Content="Annuler" HorizontalAlignment="Left" Margin="187,336,0,0" VerticalAlignment="Top" Width="151" Height="44"/>
+        <TextBox x:Name="TbxDemandeur" IsEnabled="False" HorizontalAlignment="Left" Height="26" Margin="357,232,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="143"/>
+        <Label Content="Demandeur" HorizontalAlignment="Left" Margin="277,231,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="TbxService" IsEnabled="False" HorizontalAlignment="Left" Height="26" Margin="357,272,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="143"/>
+        <Label Content="Service" HorizontalAlignment="Left" Margin="288,271,0,0" VerticalAlignment="Top" Width="61"/>
+
+    </Grid>
+</Page>
