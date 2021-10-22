@@ -8,8 +8,29 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CreationSalarie">
 
-    <Grid Background="#FFA6FF21">
-        <TextBlock HorizontalAlignment="Left" Height="30" Margin="255,31,0,0" TextWrapping="Wrap" Text="Creation Salarie" VerticalAlignment="Top" Width="233" TextAlignment="Center"/>
+    <Grid Background="#FFC9FF77">
+        <TextBlock HorizontalAlignment="Left" Height="30" Margin="255,25,0,0" TextWrapping="Wrap" Text="Creation Salarie" VerticalAlignment="Top" Width="233" TextAlignment="Center" FontWeight="Bold" FontSize="18"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="164,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="164,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="164,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="164,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <Label Content="Matricule" HorizontalAlignment="Left" Height="25" Margin="70,118,0,0" VerticalAlignment="Top" Width="78" FontSize="14"/>
+        <Label Content="Nom" HorizontalAlignment="Left" Height="25" Margin="70,163,0,0" VerticalAlignment="Top" Width="78" FontSize="14"/>
+        <Label Content="Prenom" HorizontalAlignment="Left" Height="25" Margin="70,204,0,0" VerticalAlignment="Top" Width="78" FontSize="14"/>
+        <Label Content="Date de Naissance" HorizontalAlignment="Left" Height="25" Margin="41,255,0,0" VerticalAlignment="Top" Width="107" FontSize="14"/>
+        <Label Content="Type de contrat" HorizontalAlignment="Left" Height="25" Margin="41,309,0,0" VerticalAlignment="Top" Width="107" FontSize="14"/>
+        <Label Content="Adresse" HorizontalAlignment="Left" Height="36" Margin="368,257,0,0" VerticalAlignment="Top" Width="78" FontSize="14"/>
+        <ListView HorizontalAlignment="Left" Height="78" Margin="466,257,0,0" VerticalAlignment="Top" Width="244">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Enregistrer" HorizontalAlignment="Left" Height="34" Margin="164,368,0,0" VerticalAlignment="Top" Width="537"/>
+        <Button Content="Image" HorizontalAlignment="Left" Height="34" Margin="466,202,0,0" VerticalAlignment="Top" Width="244"/>
+        <Image Source="/Images/portrait.png" HorizontalAlignment="Left" Height="108" Margin="540,59,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.498,0.5" OpacityMask="#FFAEAEAE"/>
+        <DatePicker HorizontalAlignment="Left" Margin="164,260,0,0" VerticalAlignment="Top" Height="20" Width="168"/>
 
     </Grid>
 </Page>

@@ -35,15 +35,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\ProjetMVVM\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\ProjetMVVM\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,16 +72,45 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="APIClient.cs" />
+    <Compile Include="Commandes\EnregistrerAdresseCommande.cs" />
+    <Compile Include="Commandes\VerifAdresseCommande.cs" />
+    <Compile Include="Helpers\AccessAPI.cs" />
+    <Compile Include="Helpers\AccessHelper.cs" />
+    <Compile Include="Helpers\CryptHelper.cs" />
+    <Compile Include="Migrations\202110211344440_init-comptes.cs" />
+    <Compile Include="Migrations\202110211344440_init-comptes.Designer.cs">
+      <DependentUpon>202110211344440_init-comptes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110220746048_numero.cs" />
+    <Compile Include="Migrations\202110220746048_numero.Designer.cs">
+      <DependentUpon>202110220746048_numero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AdresseGouv.cs" />
+    <Compile Include="Models\Adresse.cs" />
+    <Compile Include="Models\Compte.cs" />
+    <Compile Include="Models\ComptesDBContext.cs" />
     <Compile Include="Models\Demande.cs" />
+    <Compile Include="Models\Geometry.cs" />
     <Compile Include="Models\ListeDemandes.cs" />
     <Compile Include="Models\Salary.cs" />
     <Compile Include="Models\Service.cs" />
+    <Compile Include="ViewModels\AdresseViewModel.cs" />
     <Compile Include="ViewModels\RechercheViewModel.cs" />
+    <Compile Include="Views\Authentification.xaml.cs">
+      <DependentUpon>Authentification.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Connexion.xaml.cs">
       <DependentUpon>Connexion.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CreationSalarie.xaml.cs">
       <DependentUpon>CreationSalarie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GestionAdresses.xaml.cs">
+      <DependentUpon>GestionAdresses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GestionCompte.xaml.cs">
+      <DependentUpon>GestionCompte.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NouvelleDemande.xaml.cs">
       <DependentUpon>NouvelleDemande.xaml</DependentUpon>
@@ -80,7 +118,19 @@
     <Compile Include="Views\RechercherDemande.xaml.cs">
       <DependentUpon>RechercherDemande.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Authentification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CreationSalarie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GestionAdresses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GestionCompte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,6 +173,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202110211344440_init-comptes.resx">
+      <DependentUpon>202110211344440_init-comptes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110220746048_numero.resx">
+      <DependentUpon>202110220746048_numero.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -143,5 +199,15 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\portrait.png" />
+    <Content Include="Images\vector-lock-icon.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\vector-lock-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

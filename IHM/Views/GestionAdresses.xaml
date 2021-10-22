@@ -1,0 +1,33 @@
+﻿<Page x:Class="IHM.Views.GestionAdresses"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IHM.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GestionAdresses">
+
+    <Grid Background="#FFF1D0E8">
+        <TextBox Text="{Binding Path=AdresseVM.Numero}" HorizontalAlignment="Left" Height="31" Margin="190,95,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="156"/>
+        <TextBox Text="{Binding Path=AdresseVM.Rue}" HorizontalAlignment="Left" Height="31" Margin="190,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <TextBox Text="{Binding Path=AdresseVM.CodePostal}" HorizontalAlignment="Left" Height="31" Margin="190,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <TextBox Text="{Binding Path=AdresseVM.Ville}" HorizontalAlignment="Left" Height="31" Margin="190,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <Label Content="Numero" HorizontalAlignment="Left" Margin="85,95,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label Content="Rue" HorizontalAlignment="Left" Margin="85,151,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label Content="Code Postal" HorizontalAlignment="Left" Margin="85,200,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label Content="Ville" HorizontalAlignment="Left" Margin="85,256,0,0" VerticalAlignment="Top" Width="79"/>
+        <Button Command="{Binding Path=EnregistrerAdresseCommande}" CommandParameter="{Binding Path=AdresseVM}" Content="Valider" HorizontalAlignment="Left" Height="22" Margin="241,322,0,0" VerticalAlignment="Top" Width="105" Click="Valider_Click" />
+        <ListView ItemsSource="{Binding Path=AdressesVM}"  
+                  SelectedItem="{Binding Path=AdresseVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  HorizontalAlignment="Left" Height="249" Margin="456,95,0,0" VerticalAlignment="Top" Width="275">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Command="{Binding Path=VerifAdresseCommande}" CommandParameter="{Binding AdresseVM}" Content="Verifier" HorizontalAlignment="Left" Height="22" Margin="85,322,0,0" VerticalAlignment="Top" Width="105" />
+
+    </Grid>
+</Page>

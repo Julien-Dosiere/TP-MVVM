@@ -21,6 +21,8 @@ namespace IHM.Models
         public Nullable<bool> Responsable { get; set; }
         public Nullable<int> IdService { get; set; }
 
+        // public int AdresseId { get; set; }
         public virtual Service Service { get; set; }
+        // public virtual Adresse Adresse { get; set; }
     }
 }

@@ -24,12 +24,24 @@ namespace IHM
         public MainWindow()
         {
             InitializeComponent();
+            Authentifier();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Authentifier()
         {
-
+            this.Hide();
+            Authentification FenAuth = new Authentification();
+            if (FenAuth.ShowDialog() == true)
+            {
+                this.Show();
+            } 
+            else
+            {
+                MessageBox.Show("Connexion abandonné, fermeture de l'application");
+                this.Close();
+            }
         }
+
 
         private void NouvelleDemande_Click(object sender, RoutedEventArgs e)
         {
@@ -44,6 +56,16 @@ namespace IHM
         private void CreationSalarie_Click(object sender, RoutedEventArgs e)
         {
             frmPages.Navigate(new CreationSalarie());
+        }
+
+        private void GestionCompte_Click(object sender, RoutedEventArgs e)
+        {
+            frmPages.Navigate(new GestionCompte());
+        }
+
+        private void GestionAdresses_Click(object sender, RoutedEventArgs e)
+        {
+            frmPages.Navigate(new GestionAdresses());
         }
     }
 }

@@ -9,8 +9,10 @@
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="138">
             <Button Content="Nouvelle Demande" Click="NouvelleDemande_Click" Height="146" Margin="0,0,-0.4,0"/>
-            <Button Content="Rechercher Demande" Click="RechercherDemande_Click" Margin="0,0,-0.4,0" Height="143"/>
-            <Button Content="Creation Salarie" Click="CreationSalarie_Click" Margin="0,0,-0.4,0" Height="130"/>
+            <Button Content="Rechercher Demande" Click="RechercherDemande_Click" Margin="0,0,-0.4,0" Height="74"/>
+            <Button Content="Creation Salarie" Click="CreationSalarie_Click" Margin="0,0,-0.4,0" Height="62"/>
+            <Button Content="Gestion Adresses" Click="GestionAdresses_Click" Margin="0,0,-0.4,0" Height="62"/>
+            <Button Content="Gestion Compte" Click="GestionCompte_Click" Margin="0,0,-0.4,0" Height="72"/>
 
         </StackPanel>
         <Frame x:Name="frmPages" NavigationUIVisibility="Hidden" Content="Page Defaut" HorizontalAlignment="Left"  Height="420" Margin="138,0,-0.4,0" VerticalAlignment="Top" Width="856" Background="#FF494949"/>
